@@ -387,7 +387,7 @@ function update_UI_firmware_target() {
     document.getElementById("control_ym_position_row").style.display = "none";
     document.getElementById("control_zm_position_row").style.display = "none";
   } else if (target_firmware == "grbl-embedded") {
-    fwName = "GRBL ESP32";
+    fwName = "Precision Automation";
     last_grbl_pos = "";
     document.getElementById("configtablink").style.display = "block";
     document.getElementById("auto_check_control").style.display = "none";
@@ -447,8 +447,8 @@ function update_UI_firmware_target() {
         "none";
     }
     document.getElementById("grblPanel").style.display = "flex";
-    document.getElementById("FW_github").href =
-      "https://github.com/bdring/Grbl_Esp32";
+    // document.getElementById("FW_github").href =
+      // "https://github.com/bdring/Grbl_Esp32";
     document.getElementById("settings_filters").style.display = "none";
     document.getElementById("control_x_position_label").innerHTML = "Xw";
     document.getElementById("control_y_position_label").innerHTML = "Yw";
@@ -464,8 +464,8 @@ function update_UI_firmware_target() {
     document.getElementById("zero_y_btn").style.display = "none";
     document.getElementById("zero_z_btn").style.display = "none";
     document.getElementById("grblPanel").style.display = "none";
-    document.getElementById("FW_github").href =
-      "https://github.com/MarlinFirmware/Marlin";
+    // document.getElementById("FW_github").href =
+      // "https://github.com/MarlinFirmware/Marlin";
     document.getElementById("settings_filters").style.display = "none";
     document.getElementById("control_xm_position_row").style.display = "none";
     document.getElementById("control_ym_position_row").style.display = "none";
@@ -796,3 +796,18 @@ function process_socket_response(msg) {
     }
   }
 }
+
+var at_adminVisible = true;
+function at_toggleAdminVisible() {
+  var elems = [
+    document.getElementById("mainuitablinks"),
+    document.getElementById("at_nav-admin")
+  ];
+
+  for(i = 0; i < elems.length; i++) {
+    elems[i].style.display = at_adminVisible ? "none" : "block";
+  }
+
+  at_adminVisible = !at_adminVisible;
+}
+at_toggleAdminVisible();
